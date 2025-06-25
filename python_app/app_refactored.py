@@ -49,7 +49,7 @@ def enrich_dateDuration(colA, colB, df):
     Note:
     colB>colA
     """
-    df['date_delta'] = (df[colB]-df[colA]).dt.days
+    df['date_delta'] = (df[colA]-df[colB]).dt.days
 
     #Conditional Filtering to be able to gauge eroneous loans.
     df.loc[df['date_delta'] < 0, 'valid_loan_flag'] = False
